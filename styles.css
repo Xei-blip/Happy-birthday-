@@ -1,0 +1,38 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:Georgia,"Times New Roman",serif;color:#5b2940;background:radial-gradient(circle at top,#fff7fb 0,#ffe8f1 45%,#ffd5e4 100%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.8),transparent 25%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.55),transparent 30%);pointer-events:none}
+.container{position:relative;z-index:2;min-height:100vh;width:min(720px,100%);margin:auto;padding:48px 18px 70px;text-align:center}
+.hint{margin:0 0 34px;font:600 14px/1.4 system-ui,sans-serif;letter-spacing:2px;text-transform:lowercase;color:#a95a78}
+.tap{margin:22px 0 0;font:600 13px/1.4 system-ui,sans-serif;letter-spacing:1.5px;color:#a95a78;animation:pulse 1.8s ease-in-out infinite}
+.gift-box{position:relative;width:190px;height:180px;margin:0 auto;border:0;background:none;cursor:pointer;filter:drop-shadow(0 20px 18px rgba(160,60,100,.18));transition:transform .25s ease}
+.gift-box:hover{transform:translateY(-5px) scale(1.02)}
+.gift-box:active{transform:scale(.97)}
+.box{position:absolute;left:20px;right:20px;bottom:15px;height:110px;background:linear-gradient(135deg,#ff9fbd,#f27da3);border-radius:8px 8px 14px 14px;box-shadow:inset 0 7px 0 rgba(255,255,255,.25)}
+.lid{position:absolute;left:10px;right:10px;top:38px;height:43px;background:linear-gradient(135deg,#ffb6cd,#ef709b);border-radius:9px;z-index:4;box-shadow:0 8px 12px rgba(140,50,90,.15);transform-origin:20% 90%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.ribbon{position:absolute;background:#fff0a8;box-shadow:0 0 0 1px rgba(180,130,60,.08)}
+.ribbon.vertical{width:25px;height:100%;left:50%;transform:translateX(-50%);top:0}
+.ribbon.horizontal{height:23px;width:100%;left:0;top:43%;transform:translateY(-50%)}
+.bow{position:absolute;top:-25px;width:50px;height:38px;background:#ffe68c;border:3px solid rgba(185,130,55,.15);border-radius:80% 15% 70% 25%;z-index:5}
+.bow.left{left:72px;transform:rotate(-25deg)}
+.bow.right{left:104px;transform:scaleX(-1) rotate(-25deg)}
+.knot{position:absolute;top:-6px;left:91px;width:22px;height:22px;border-radius:50%;background:#ffd86e;z-index:6}
+.gift-box.open .lid{transform:translate(-10px,-75px) rotate(-24deg)}
+.gift-box.open .bow{transform:translate(-18px,-18px) rotate(-42deg)}
+.gift-box.open .bow.right{transform:scaleX(-1) translate(-18px,-18px) rotate(-42deg)}
+.message{display:none;margin:44px auto 0;text-align:left}
+.message.show{display:block;animation:reveal .9s ease both}
+.card{position:relative;padding:30px 24px 28px;background:rgba(255,255,255,.92);border:1px solid rgba(221,117,153,.28);border-radius:24px;box-shadow:0 18px 55px rgba(143,62,95,.16),0 3px 10px rgba(143,62,95,.08);backdrop-filter:blur(8px)}
+.card p{margin:0 0 18px;font-size:16px;line-height:1.78}
+.card p:first-of-type{font-size:24px;font-weight:bold;text-align:center;color:#d4507b;margin-bottom:22px}
+.sparkle,.end-heart{text-align:center;color:#e35f88;font-size:30px;margin-bottom:10px}
+.end-heart{margin:22px 0 0;font-size:36px}
+.hearts{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.float-heart{position:absolute;bottom:-40px;color:#ef7198;opacity:.45;font-size:18px;animation:floatUp linear forwards}
+.confetti{position:fixed;z-index:10;pointer-events:none;font-size:20px;animation:burst 1.5s ease-out forwards}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@keyframes burst{0%{transform:translate(0,0) scale(.4) rotate(0);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(1.2) rotate(540deg);opacity:0}}
+@keyframes reveal{from{opacity:0;transform:translateY(30px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes pulse{50%{opacity:.55}}
+@media(max-width:480px){.container{padding-top:38px}.gift-box{width:170px;height:165px}.card{padding:25px 18px}.card p{font-size:15px;line-height:1.72}.card p:first-of-type{font-size:22px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
